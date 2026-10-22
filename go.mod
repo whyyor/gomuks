@@ -64,3 +64,5 @@ require (
 	golang.org/x/term v0.45.0
 	gopkg.in/natefinch/lumberjack.v2 v2.2.1 // indirect
 )
+
+replace go.mau.fi/mauview => ./third_party/mauview
