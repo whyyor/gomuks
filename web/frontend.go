@@ -14,15 +14,13 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+// Package web is what's left of the browser UI in this terminal-only fork:
+// the backend still embeds a frontend, now an empty placeholder.
 package web
 
 import (
 	"embed"
 )
 
-//go:generate ./export-go-data.sh
-//go:generate ./build-wasm.sh
-//go:generate npm install
-//go:generate npm run build
 //go:embed all:dist
 var Frontend embed.FS

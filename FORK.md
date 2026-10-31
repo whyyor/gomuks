@@ -13,14 +13,32 @@ keep changing it, written for a coding agent as much as for a human.
 | Source (this repo) | `~/Projects/gomuks` |
 | Installed TUI | `~/.local/opt/gomuks/gomuks-terminal` |
 | Launch command | `gomuks-tui` → symlink to the installed TUI; usually opened with `hgo msg` (`~/Configration/scripts/hgo`) |
-| Backend daemon | `~/.local/opt/gomuks/gomuks`, **upstream build `2ae6cc06` (Aug 10), not built from this fork** |
+| Backend daemon | `~/.local/opt/gomuks/gomuks`, built from this fork (`cmd/gomuks`, tags `sqlite_fts5`); the upstream build is kept as `gomuks.upstream` |
 | Daemon service | launchd agent `org.nixos.gomuks`, defined in `~/Configration/nix/flake.nix` |
-| TUI config | `~/Library/Application Support/gomuks/terminal.yaml` |
+| TUI config | `~/Library/Application Support/gomuks/terminal.yaml` (written by gomuks; holds the backend password, keep it out of git) |
+| Your colours and preferences | `~/Library/Application Support/gomuks/gomuks.yaml`, linked from `~/Configration/gomuks/gomuks.yaml`; read-only for gomuks, wins over terminal.yaml |
 | Daemon DB | `~/Library/Application Support/gomuks/gomuks.db` (read-only queries are fine) |
 | Logs | `~/Library/Logs/gomuks/` (`terminal.log`, `gomuks.log`) |
 | Notifier bundles | `~/.local/opt/gomuks/notifiers/*.app` (see below) |
 | Notifier icon sources | `~/Configration/icons/gomuks-notifiers/*.png` |
 | Terminal | Ghostty, config `~/Configration/ghostty/config` |
+
+## What's in this repo
+
+Terminal-only: the browser app (`web/` sources), the Electron desktop app,
+the wasm and FFI builds, the extra commands (archivemuks, chromagen,
+rpcdocgen, wasmuks) and upstream's CI were removed. What's left:
+
+- `tui/`, `third_party/mauview` (patched), `cmd/gomuks-terminal`: the TUI.
+- `cmd/gomuks`, `pkg/{gomuks,hicli,rpc,orientation,rainbow}`, `version/`: the
+  backend daemon and what both share.
+- `web/frontend.go` + `web/dist/empty`: a stub, because the backend still
+  embeds a frontend. The rebuilt backend serves the API but no browser UI.
+
+Build the backend with `./build-noweb.sh` (or `go build -tags sqlite_fts5
+./cmd/gomuks`). Everything removed is in the `pre-strip` tag; restore a path
+with `git checkout pre-strip -- <path>`. When merging upstream, changes to
+removed files come back as modify/delete conflicts: `git rm` them again.
 
 ## Branches and remotes
 

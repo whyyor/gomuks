@@ -93,8 +93,6 @@ github.com/zyedidia/clipboard v1.0.4 h1:r6GUQOyPtIaApRLeD56/U+2uJbXis6ANGbKWCljU
 github.com/zyedidia/clipboard v1.0.4/go.mod h1:zykFnZUXX0ErxqvYLUFEq7QDJKId8rmh2FgD0/Y8cjA=
 go.mau.fi/goheif v0.1.0 h1:9Pfh40MAlF+ouDQPKI2W488O2Z8zw3aS6hSy5WWHV1w=
 go.mau.fi/goheif v0.1.0/go.mod h1:fUDqlTjviy4GuyV/0n43ueiCK8IUcplPW6bYiCHn2CQ=
-go.mau.fi/mauview v0.3.0 h1:GQg0+mIjF3WiDpgHAq9rMFKtRCwMkx4l55JYY3NVyZA=
-go.mau.fi/mauview v0.3.0/go.mod h1:uySnpp4+nF0zV9YKrpHfwoPZ8SXWJ5Uh4RXfZP6ZZ0s=
 go.mau.fi/util v0.9.12-0.20260719092501-f9c03d846391 h1:lsvBEY8MJfYdV61YbwikiQvb0Al/onbmLW5wfl/0tag=
 go.mau.fi/util v0.9.12-0.20260719092501-f9c03d846391/go.mod h1:xunp/oIQfFD68HHcNHfG0pOiHkvEtDhTweeIwKJ//+Q=
 go.mau.fi/webp v0.3.0 h1:gVHQZtz21Ziwj+CDuklbX9mqpsnDIFKxs/BJyV7iZzA=

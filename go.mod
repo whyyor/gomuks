@@ -37,13 +37,14 @@ require (
 	golang.org/x/image v0.44.0
 	golang.org/x/net v0.57.0
 	golang.org/x/sys v0.47.0
-	golang.org/x/text v0.40.0
 	gopkg.in/toast.v1 v1.0.0-20180812000517-0a84660828b2
 	gopkg.in/yaml.v3 v3.0.1
 	maunium.net/go/mauflag v1.0.0
 	maunium.net/go/mautrix v0.29.1-0.20260809220912-47a3b7191944
 	mvdan.cc/xurls/v2 v2.6.0
 )
+
+require golang.org/x/text v0.40.0 // indirect
 
 require (
 	filippo.io/edwards25519 v1.2.0 // indirect
