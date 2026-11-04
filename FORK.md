@@ -189,3 +189,18 @@ After editing the Ghostty config, the user reloads with Cmd+R.
 - Many TUI features upstream were commented-out stubs (message selection, editing,
   tab completion, download/open, typing, preferences loading). If a feature
   "does nothing", check whether the code behind it is actually live.
+
+## tuimessenger support (branch `tuimessenger-support`)
+
+[tuimessenger](https://github.com/whyyor/tuimessenger) runs the chat bridges itself and serves a small Matrix
+client API, so this client can use it instead of Beeper. It has no end-to-end encryption between client and
+server (both run on your own machines) and says so in `/versions`:
+
+- `com.tuimessenger.no_e2ee`: `hicli` skips key upload/fetch after login, reports the device as verified, and
+  starts syncing right away (normally that happens after verification).
+- `com.tuimessenger.viewing`: the new `set_viewing_room` command tells the server which chat is open on screen.
+  The TUI sends it when switching or closing chats and when terminal focus changes, and refreshes it every 30 s.
+  WhatsApp then goes online (and sends typing notices) only while a chat is really open.
+
+Normal homeservers don't announce these flags, so nothing changes there. Run a second daemon next to the Beeper
+one with its own folder and port: `GOMUKS_ROOT=<dir>` and `web.listen_address` in `<dir>/config/config.yaml`.
